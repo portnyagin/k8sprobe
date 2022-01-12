@@ -1,0 +1,7 @@
+FROM k8sprobe/base
+ENV PORT=8080
+ENV NAME=Alice
+ENV FRIEND=Bob
+WORKDIR /app
+EXPOSE 8080
+CMD [ "./service" ]
