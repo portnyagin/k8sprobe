@@ -31,9 +31,8 @@ func Start() {
 	}
 	fmt.Printf("Service %s started\n", config.Name)
 	fmt.Println(config)
-	config.Port = ":8090"
-	config.Name = "Bob"
+
 	http.HandleFunc("/sayHello", HelloHandler)
 	http.HandleFunc("/callFriend", HandlerCallFriend)
-	http.ListenAndServe(config.Port, nil)
+	http.ListenAndServe(":"+config.Port, nil)
 }
