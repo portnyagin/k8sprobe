@@ -26,9 +26,11 @@ var config Config
 
 func Start() {
 	fmt.Println(os.Args)
-	if err := env.Parse(config); err != nil {
+	if err := env.Parse(&config); err != nil {
 		fmt.Println("can't load service config", err)
 	}
+	fmt.Printf("Service %s started\n", config.Name)
+	fmt.Println(config)
 	config.Port = ":8090"
 	config.Name = "Bob"
 	http.HandleFunc("/sayHello", HelloHandler)
