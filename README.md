@@ -10,3 +10,8 @@ trivial service for probe internal communications
 имя сервиса
 порт
 урлы соседей
+
+
+docker build -t k8sprobe/base .
+docker build -t k8sprobe/alice -f .\Alice.Dockerfile .
+docker build -t k8sprobe/Bob -f .\Bob.Dockerfile . 
