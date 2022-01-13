@@ -14,6 +14,6 @@ RUN go mod download
 RUN go get github.com/portnyagin/k8sprobe/internal/app
 RUN go build -o /app/service ./cmd/probe/main.go
 WORKDIR /app
-RUN rm -r ./src
+# RUN rm -r ./src
 #EXPOSE 8080
 #CMD [ "./service" ]
