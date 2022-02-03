@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alice
+  namespace: probe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: k8sprobe
+  template:
+    metadata:
+      labels:
+        name: k8sprobe
+    spec:
+      containers:
+        - name: alice
+          image: k8sprobe/alice
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alice
+  namespace: probe
+spec:
+  type: NodePort
+  selector:
+    name: k8sprobe
+  ports:
+    - port: 3000
+      targetPort: 3000
